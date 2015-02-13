@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html data-ng-app="VetechLawApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Law Application</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
+    <link href="css/angular.treeview.css" rel="stylesheet">
+    <title></title>
+</head>
+<body>
+    <section id="container" >
+        <div data-ng-include="'app/includes/header-panel.html'"></div>
+        <span data-ng-include="'app/includes/left-panel.html'"></span>
+        <section id="main-content" style="padding-top:60px">
+            <div ui-view></div>
+        </section>
+    </section>
+</body>
+
+    <script src="jsLibraries/jquery.min.js"></script>
+    <script src="jsLibraries/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="jsLibraries/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="jsLibraries/jquery.scrollTo.min.js"></script>
+    <script src="jsLibraries/jquery.nicescroll.js"></script>
+    <script src="jsLibraries/menuNavigation.js"></script>
+    <script src="jsLibraries/typeahead.jquery.min.js"></script>
+    <script src="jsLibraries/bloodhound.min.js"></script>
+
+    <!--load libraries-->
+    <script src="jsLibraries/angular.min.js"></script>
+    <script src="jsLibraries/angular-ui-router.min.js"></script>
+    <script src="jsLibraries/ui-bootstrap-tpls-0.12.0.min.js"></script>
+    <script src="jsLibraries/lodash.min.js"></script>
+    <script src="jsLibraries/underscore.string.min.js"></script>
+    <script src="jsLibraries/angular-typeahead.min.js"></script>
+    <script src="jsLibraries/angular.treeview.js"></script>
+
+    <!--load application-->
+    <script src="app/app.js"></script>
+    <script src="app/routeConfiguration.js"></script>
+
+    <!--services-->
+    <script src="app/globalService/navigationMenuService.js"></script>
+    <script src="app/globalService/LoginService.js"></script>
+    <!--system configuration module service-->
+    <script src="app/systemConfigModule/services/CaseClassificationService.js"></script>
+    <script src="app/systemConfigModule/services/IdentificationTypeService.js"></script>
+    <script src="app/systemConfigModule/services/InstructionConfigurationService.js"></script>
+    <script src="app/systemConfigModule/services/JobTitleService.js"></script>
+    <script src="app/systemConfigModule/services/BranchService.js"></script>
+    <script src="app/systemConfigModule/services/RoleService.js"></script>
+    <script src="app/systemConfigModule/services/RoleGroupService.js"></script>
+    <script src="app/systemConfigModule/services/ClientTypeService.js"></script>
+        <!--client module service-->
+    <script src="app/clientModule/services/ClientRegistrationService.js"></script>
+
+    <!--controllers-->
+    <script src="app/globalController/navigationMenuController.js"></script>
+    <script src="app/globalController/LoginController.js"></script>
+    <!--system configuration module controller-->
+    <script src="app/systemConfigModule/controllers/CaseClassificationController.js"></script>
+    <script src="app/systemConfigModule/controllers/IdentificationTypesController.js"></script>
+    <script src="app/systemConfigModule/controllers/InstructionConfigrationController.js"></script>
+    <script src="app/systemConfigModule/controllers/JobTitleController.js"></script>
+    <script src="app/systemConfigModule/controllers/BranchController.js"></script>
+    <script src="app/systemConfigModule/controllers/RoleController.js"></script>
+    <script src="app/systemConfigModule/controllers/RoleGroupController.js"></script>
+    <script src="app/systemConfigModule/controllers/ClientTypeController.js"></script>
+        <!--client module controllers-->
+    <script src="app/clientModule/controllers/ClientRegistartionController.js"></script>
+
+
+</html>

@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="EMR - coreLRMS@localhost" uuid="ccc979ec-e403-4787-a802-79ae296542d7">
+    <database-info product="MySQL" version="5.5.41-0ubuntu0.14.10.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="medisup"/>
+    <table name="DATABASECHANGELOG" schema="" catalog="medisup" type="TABLE">
+      <column name="ID" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="AUTHOR" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="FILENAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="DATEEXECUTED" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="ORDEREXECUTED" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="EXECTYPE" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="MD5SUM" sqlType="VARCHAR" precision="35" scale="0" nullable="true" jdbcType="12"/>
+      <column name="DESCRIPTION" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="COMMENTS" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="TAG" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="LIQUIBASE" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="DATABASECHANGELOGLOCK" schema="" catalog="medisup" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="LOCKED" sqlType="BIT" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="LOCKGRANTED" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="LOCKEDBY" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+    </table>
+    <table name="person_address" schema="" catalog="medisup" type="TABLE">
+      <column name="person_address_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="person_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="address" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="city_village" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="state_province" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="county_district" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="postal_code" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="country" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="creator" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="date_created" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="voided" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6"/>
+      <column name="voided_by" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="date_voided" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="void_reason" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="changed_by" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="date_changed" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="person_address_id"/>
+      <index name="uuid" unique="true" columns="uuid"/>
+    </table>
+    <table name="person_attribute" schema="" catalog="medisup" type="TABLE">
+      <column name="person_attribute_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="person_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="national_id" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="phone_number" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="person_attribute_type_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="creator" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="date_created" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="changed_by" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="date_changed" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="voided" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="person_attribute_id"/>
+      <index name="uuid" unique="true" columns="uuid"/>
+    </table>
+    <table name="person_attribute_type" schema="" catalog="medisup" type="TABLE">
+      <column name="person_attribute_type_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="format" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="creator" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="date_created" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="changed_by" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="date_changed" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="retired" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="retired_by" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="date_retired" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="retire_reason" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="edit_privilege" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="person_attribute_type_id"/>
+      <index name="uuid" unique="true" columns="uuid"/>
+    </table>
+    <table name="person_name" schema="" catalog="medisup" type="TABLE">
+      <column name="person_name_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="person_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="prefix" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="given_name" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="middle_name" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="family_name_prefix" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="family_name" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="family_name2" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="family_name_suffix" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="creator" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="date_created" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="changed_by" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="date_changed" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="person_name_id"/>
+      <index name="uuid" unique="true" columns="uuid"/>
+    </table>
+    <table name="privilege" schema="" catalog="medisup" type="TABLE">
+      <column name="privilege" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="privilege"/>
+      <index name="uuid" unique="true" columns="uuid"/>
+    </table>
+    <table name="role" schema="" catalog="medisup" type="TABLE">
+      <column name="role" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="role"/>
+      <exported-key name="role_privilege_fk" table="role_privilege" schema="" catalog="medisup" columns="role"/>
+      <index name="uuid" unique="true" columns="uuid"/>
+    </table>
+    <table name="role_privilege" schema="" catalog="medisup" type="TABLE">
+      <column name="role" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="privilege" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="role,privilege"/>
+      <foreign-key name="role_privilege_fk" columns="role" ref-table="role" ref-schema="" ref-catalog="medisup" ref-columns="role" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="uuid" unique="true" columns="uuid"/>
+    </table>
+    <table name="role_role" schema="" catalog="medisup" type="TABLE">
+      <column name="parent_role" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="child_role" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="parent_role,child_role"/>
+      <index name="uuid" unique="true" columns="uuid"/>
+    </table>
+    <table name="user_property" schema="" catalog="medisup" type="TABLE">
+      <column name="user_property_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="property" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="property_value" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="user_property_id"/>
+      <foreign-key name="user_property_id" columns="user_property_id" ref-table="users" ref-schema="" ref-catalog="medisup" ref-columns="user_id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <index name="uuid" unique="true" columns="uuid"/>
+    </table>
+    <table name="user_role" schema="" catalog="medisup" type="TABLE">
+      <column name="user_role_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="role" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="user_role_id"/>
+      <foreign-key name="user_role_id_fk" columns="user_role_id" ref-table="users" ref-schema="" ref-catalog="medisup" ref-columns="user_id" update-rule="0" delete-rule="0" deferrability="2"/>
+    </table>
+    <table name="users" schema="" catalog="medisup" type="TABLE">
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="system_id" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="job_id" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="username" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="person_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="password" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="secret_question" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="secret_answer" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="creator" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="date_created" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="changed_by" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="date_changed" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="retired" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6"/>
+      <column name="retired_by" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="date_retired" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="retire_reason" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="user_id,person_id"/>
+      <exported-key name="user_property_id" table="user_property" schema="" catalog="medisup" columns="user_property_id"/>
+      <exported-key name="user_role_id_fk" table="user_role" schema="" catalog="medisup" columns="user_role_id"/>
+      <index name="uuid" unique="true" columns="uuid"/>
+    </table>
+  </data-source>
+  <data-source name="Mysql - @localhost" uuid="66269baf-e600-49f1-aed0-fccfd0585ed9">
+    <database-info product="MySQL" version="5.5.41-0ubuntu0.14.10.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="coreLRMS"/>
+    <table name="branch" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="branch_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="branch_Name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="branch_Code" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="branch_Postal_Address" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="branch_Postal_Code" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="branch_Location_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="branch_Mail" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="branch_Head_Id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="active" sqlType="BIT" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="uuid" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="branch_ID"/>
+      <foreign-key name="branch_ibfk_2" columns="branch_Head_Id" ref-table="employee" ref-schema="" ref-catalog="coreLRMS" ref-columns="employee_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="branch_ibfk_1" columns="branch_Location_ID" ref-table="location" ref-schema="" ref-catalog="coreLRMS" ref-columns="location_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="case_Classes" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="case_Code" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="case_Name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="active" sqlType="BIT" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="ifRoot" sqlType="BIT" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="case_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="case_Code"/>
+      <exported-key name="case_Map_ibfk_1" table="case_Map" schema="" catalog="coreLRMS" columns="parent_ID"/>
+      <exported-key name="case_Map_ibfk_2" table="case_Map" schema="" catalog="coreLRMS" columns="child_ID"/>
+      <exported-key name="file_ibfk_1" table="file" schema="" catalog="coreLRMS" columns="file_Class_Code"/>
+    </table>
+    <table name="case_Map" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="case_Map_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="parent_ID" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="child_ID" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="case_Map_ID"/>
+      <foreign-key name="case_Map_ibfk_1" columns="parent_ID" ref-table="case_Classes" ref-schema="" ref-catalog="coreLRMS" ref-columns="case_Code" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="case_Map_ibfk_2" columns="child_ID" ref-table="case_Classes" ref-schema="" ref-catalog="coreLRMS" ref-columns="case_Code" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="client" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="client_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="client_Person_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="client_Type_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_By" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="created_On" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="modified_By" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="modified_On" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="client_ID"/>
+      <foreign-key name="client_ibfk_1" columns="client_Person_ID" ref-table="person" ref-schema="" ref-catalog="coreLRMS" ref-columns="person_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="file_ibfk_2" table="file" schema="" catalog="coreLRMS" columns="client_ID"/>
+    </table>
+    <table name="client_Config" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="client_type_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="client_Type_Name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="client_Type_Code" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="active" sqlType="BIT" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="client_type_ID"/>
+    </table>
+    <table name="client_Payment" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="payment_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="file_Code" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="amount_Paid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="receipt_Number" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="date_Paid" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="received_By" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="payment_ID"/>
+      <foreign-key name="client_Payment_ibfk_1" columns="file_Code" ref-table="file" ref-schema="" ref-catalog="coreLRMS" ref-columns="file_Code" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="client_Payment_ibfk_2" columns="received_By" ref-table="user" ref-schema="" ref-catalog="coreLRMS" ref-columns="user_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="email" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="email_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="email_Recipient" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email_Subject" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email_Body" sqlType="VARCHAR" precision="1024" scale="0" nullable="true" jdbcType="12"/>
+      <column name="email_Sender_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="date_Sent" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="email_ID"/>
+      <foreign-key name="email_ibfk_1" columns="email_Sender_ID" ref-table="user" ref-schema="" ref-catalog="coreLRMS" ref-columns="user_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="emp_expenditure" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="exp_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="file_Code" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="employee_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="date_Of_Visit" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="amount_drawn" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="destination" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="approved_BY" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="status" sqlType="BIT" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="balance" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="exp_ID"/>
+      <foreign-key name="emp_expenditure_ibfk_1" columns="file_Code" ref-table="file" ref-schema="" ref-catalog="coreLRMS" ref-columns="file_Code" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="emp_expenditure_ibfk_2" columns="employee_ID" ref-table="employee" ref-schema="" ref-catalog="coreLRMS" ref-columns="employee_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="transactions_ibfk_2" table="transactions" schema="" catalog="coreLRMS" columns="exp_ID"/>
+    </table>
+    <table name="employee" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="employee_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="employee_Person_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="job_Title_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="job_Location_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_By" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="created_On" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="modified_By" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="modified_On" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="employee_ID"/>
+      <foreign-key name="employee_ibfk_1" columns="employee_Person_ID" ref-table="person" ref-schema="" ref-catalog="coreLRMS" ref-columns="person_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="employee_ibfk_2" columns="job_Location_ID" ref-table="job_Title" ref-schema="" ref-catalog="coreLRMS" ref-columns="job_Title_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="employee_ibfk_3" columns="job_Location_ID" ref-table="location" ref-schema="" ref-catalog="coreLRMS" ref-columns="location_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="branch_ibfk_2" table="branch" schema="" catalog="coreLRMS" columns="branch_Head_Id"/>
+      <exported-key name="emp_expenditure_ibfk_2" table="emp_expenditure" schema="" catalog="coreLRMS" columns="employee_ID"/>
+      <exported-key name="file_Lending_ibfk_2" table="file_Lending" schema="" catalog="coreLRMS" columns="lender_ID"/>
+      <exported-key name="file_Lending_ibfk_3" table="file_Lending" schema="" catalog="coreLRMS" columns="received_By"/>
+      <exported-key name="salaries_ibfk_1" table="salaries" schema="" catalog="coreLRMS" columns="employee_ID"/>
+      <exported-key name="scheduler_ibfk_2" table="scheduler" schema="" catalog="coreLRMS" columns="employee_ID"/>
+      <exported-key name="transactions_ibfk_1" table="transactions" schema="" catalog="coreLRMS" columns="employee_ID"/>
+      <exported-key name="visit_ibfk_2" table="visit" schema="" catalog="coreLRMS" columns="employee_ID"/>
+    </table>
+    <table name="entity_Config" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="entity_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="entity_Name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="postal_Address" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="postal_Code" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="location_Name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="entity_Email" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="phone_NO" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="nhifNo" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="nssfNo" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="vatNO" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="pinNo" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="entity_ID"/>
+    </table>
+    <table name="file" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="file_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="file_Code" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="file_Class_Code" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="client_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ins_code" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="notes" sqlType="VARCHAR" precision="1024" scale="0" nullable="true" jdbcType="12"/>
+      <column name="created_By" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="created_On" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="modified_By" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="modified_On" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="file_Code"/>
+      <foreign-key name="file_ibfk_1" columns="file_Class_Code" ref-table="case_Classes" ref-schema="" ref-catalog="coreLRMS" ref-columns="case_Code" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="file_ibfk_2" columns="client_ID" ref-table="client" ref-schema="" ref-catalog="coreLRMS" ref-columns="client_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="file_ibfk_3" columns="ins_code" ref-table="instructions" ref-schema="" ref-catalog="coreLRMS" ref-columns="ins_Code" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="client_Payment_ibfk_1" table="client_Payment" schema="" catalog="coreLRMS" columns="file_Code"/>
+      <exported-key name="emp_expenditure_ibfk_1" table="emp_expenditure" schema="" catalog="coreLRMS" columns="file_Code"/>
+      <exported-key name="file_Lending_ibfk_1" table="file_Lending" schema="" catalog="coreLRMS" columns="file_Code"/>
+      <exported-key name="scheduler_ibfk_1" table="scheduler" schema="" catalog="coreLRMS" columns="file_Code"/>
+      <exported-key name="visit_ibfk_1" table="visit" schema="" catalog="coreLRMS" columns="file_Code"/>
+    </table>
+    <table name="file_Lending" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="file_Lending_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="file_Code" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="lender_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="received_By" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="location_ID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="date_Out" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="date_In" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="notes" sqlType="VARCHAR" precision="1024" scale="0" nullable="true" jdbcType="12"/>
+      <column name="created_By" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="created_On" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="modified_By" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="modified_On" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="file_Lending_ID"/>
+      <foreign-key name="file_Lending_ibfk_1" columns="file_Code" ref-table="file" ref-schema="" ref-catalog="coreLRMS" ref-columns="file_Code" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="file_Lending_ibfk_2" columns="lender_ID" ref-table="employee" ref-schema="" ref-catalog="coreLRMS" ref-columns="employee_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="file_Lending_ibfk_3" columns="received_By" ref-table="employee" ref-schema="" ref-catalog="coreLRMS" ref-columns="employee_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="file_Lending_ibfk_4" columns="location_ID" ref-table="location" ref-schema="" ref-catalog="coreLRMS" ref-columns="location_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="identification_Type" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="type_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="type_Name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="type_Code" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="active" sqlType="BIT" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="type_ID"/>
+      <exported-key name="person_Attribute_ibfk_2" table="person_Attribute" schema="" catalog="coreLRMS" columns="id_Type"/>
+    </table>
+    <table name="instructions" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="ins_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ins_Name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ins_Code" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ins_Desc" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ins_Charge" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="status" sqlType="BIT" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ins_Code"/>
+      <exported-key name="file_ibfk_3" table="file" schema="" catalog="coreLRMS" columns="ins_code"/>
+      <exported-key name="scheduler_ibfk_4" table="scheduler" schema="" catalog="coreLRMS" columns="ins_ID"/>
+      <exported-key name="visit_ibfk_4" table="visit" schema="" catalog="coreLRMS" columns="ins_Code"/>
+    </table>
+    <table name="job_Title" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="job_Title_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="job_Name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="basic_Salary" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="role_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="active" sqlType="BIT" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="job_Title_ID"/>
+      <foreign-key name="job_Title_ibfk_1" columns="role_ID" ref-table="role_Map" ref-schema="" ref-catalog="coreLRMS" ref-columns="role_Map_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="employee_ibfk_2" table="employee" schema="" catalog="coreLRMS" columns="job_Location_ID"/>
+    </table>
+    <table name="locale" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="locales_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="locale_Name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="locale_Code" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="locales_ID"/>
+      <exported-key name="user_ibfk_1" table="user" schema="" catalog="coreLRMS" columns="user_Locale"/>
+    </table>
+    <table name="location" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="location_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="location_Name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="location_ID"/>
+      <exported-key name="branch_ibfk_1" table="branch" schema="" catalog="coreLRMS" columns="branch_Location_ID"/>
+      <exported-key name="employee_ibfk_3" table="employee" schema="" catalog="coreLRMS" columns="job_Location_ID"/>
+      <exported-key name="file_Lending_ibfk_4" table="file_Lending" schema="" catalog="coreLRMS" columns="location_ID"/>
+      <exported-key name="scheduler_ibfk_5" table="scheduler" schema="" catalog="coreLRMS" columns="location_ID"/>
+      <exported-key name="visit_ibfk_3" table="visit" schema="" catalog="coreLRMS" columns="location_ID"/>
+    </table>
+    <table name="misc_exp" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="misc_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="misc_Name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="1024" scale="0" nullable="true" jdbcType="12"/>
+      <column name="amount" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="status" sqlType="BIT" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="approved_By" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="created_By" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_On" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="misc_ID"/>
+    </table>
+    <table name="person" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="person_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="gender" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="date_Of_Birth" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="created_By" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="person_ID"/>
+      <exported-key name="client_ibfk_1" table="client" schema="" catalog="coreLRMS" columns="client_Person_ID"/>
+      <exported-key name="employee_ibfk_1" table="employee" schema="" catalog="coreLRMS" columns="employee_Person_ID"/>
+      <exported-key name="person_Address_ibfk_1" table="person_Address" schema="" catalog="coreLRMS" columns="person_ID"/>
+      <exported-key name="person_Attribute_ibfk_1" table="person_Attribute" schema="" catalog="coreLRMS" columns="person_ID"/>
+      <exported-key name="person_Attribute_ibfk_3" table="person_Attribute" schema="" catalog="coreLRMS" columns="next_Of_Kin_ID"/>
+      <exported-key name="person_Name_ibfk_1" table="person_Name" schema="" catalog="coreLRMS" columns="person_ID"/>
+      <exported-key name="user_ibfk_2" table="user" schema="" catalog="coreLRMS" columns="user_Person_ID"/>
+    </table>
+    <table name="person_Address" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="person_Address_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="person_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="postal_Address" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="postal_Code" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="postal_Location_ID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="client_Location_ID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="country" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="state" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="district" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="location" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="sublocation" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="estate" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="created_By" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="created_On" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="modified_By" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="modified_On" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="person_Address_ID"/>
+      <foreign-key name="person_Address_ibfk_1" columns="person_ID" ref-table="person" ref-schema="" ref-catalog="coreLRMS" ref-columns="person_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="person_Attribute" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="person_Attribute_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="person_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_Type" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_Number" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="phone_No" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="next_Of_Kin_ID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="image_URL" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="created_By" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="created_On" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="modified_By" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="modified_On" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="person_Attribute_ID"/>
+      <foreign-key name="person_Attribute_ibfk_1" columns="person_ID" ref-table="person" ref-schema="" ref-catalog="coreLRMS" ref-columns="person_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="person_Attribute_ibfk_2" columns="id_Type" ref-table="identification_Type" ref-schema="" ref-catalog="coreLRMS" ref-columns="type_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="person_Attribute_ibfk_3" columns="next_Of_Kin_ID" ref-table="person" ref-schema="" ref-catalog="coreLRMS" ref-columns="person_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="person_Name" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="person_Name_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="person_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="preffix" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="surname" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="first_Name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="other_Name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_By" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="created_On" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="modified_By" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="modified_On" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="person_Name_ID"/>
+      <foreign-key name="person_Name_ibfk_1" columns="person_ID" ref-table="person" ref-schema="" ref-catalog="coreLRMS" ref-columns="person_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="role" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="role_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="role" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="role_Description" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="active" sqlType="BIT" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="role_ID"/>
+      <exported-key name="role_Map_ibfk_1" table="role_Map" schema="" catalog="coreLRMS" columns="role_One"/>
+      <exported-key name="role_Map_ibfk_2" table="role_Map" schema="" catalog="coreLRMS" columns="role_Two"/>
+      <exported-key name="role_Map_ibfk_3" table="role_Map" schema="" catalog="coreLRMS" columns="role_Three"/>
+    </table>
+    <table name="role_Map" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="role_Map_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="role_One" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="role_Two" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="role_Three" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="active" sqlType="BIT" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="role_Group" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="role_Map_ID"/>
+      <foreign-key name="role_Map_ibfk_1" columns="role_One" ref-table="role" ref-schema="" ref-catalog="coreLRMS" ref-columns="role_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="role_Map_ibfk_2" columns="role_Two" ref-table="role" ref-schema="" ref-catalog="coreLRMS" ref-columns="role_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="role_Map_ibfk_3" columns="role_Three" ref-table="role" ref-schema="" ref-catalog="coreLRMS" ref-columns="role_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="job_Title_ibfk_1" table="job_Title" schema="" catalog="coreLRMS" columns="role_ID"/>
+    </table>
+    <table name="salaries" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="salary_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="employee_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="salary" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="salary_ID"/>
+      <foreign-key name="salaries_ibfk_1" columns="employee_ID" ref-table="employee" ref-schema="" ref-catalog="coreLRMS" ref-columns="employee_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="scheduler" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="scheduler_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="file_Code" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="employee_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="user_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ins_ID" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="location_ID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="date_From" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="date_To" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="notes" sqlType="VARCHAR" precision="1024" scale="0" nullable="true" jdbcType="12"/>
+      <column name="created_By" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="created_On" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="modified_By" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="modified_On" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="scheduler_ID"/>
+      <foreign-key name="scheduler_ibfk_1" columns="file_Code" ref-table="file" ref-schema="" ref-catalog="coreLRMS" ref-columns="file_Code" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="scheduler_ibfk_2" columns="employee_ID" ref-table="employee" ref-schema="" ref-catalog="coreLRMS" ref-columns="employee_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="scheduler_ibfk_3" columns="user_ID" ref-table="user" ref-schema="" ref-catalog="coreLRMS" ref-columns="user_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="scheduler_ibfk_4" columns="ins_ID" ref-table="instructions" ref-schema="" ref-catalog="coreLRMS" ref-columns="ins_Code" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="scheduler_ibfk_5" columns="location_ID" ref-table="location" ref-schema="" ref-catalog="coreLRMS" ref-columns="location_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="transactions" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="transaction_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="employee_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="exp_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="receipt_No" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="amount" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="date_Of_Transaction" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="created_By" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="transaction_ID"/>
+      <foreign-key name="transactions_ibfk_1" columns="employee_ID" ref-table="employee" ref-schema="" ref-catalog="coreLRMS" ref-columns="employee_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="transactions_ibfk_2" columns="exp_ID" ref-table="emp_expenditure" ref-schema="" ref-catalog="coreLRMS" ref-columns="exp_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="user" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="user_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_Person_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="user_Name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="security_Question" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="security_Answer" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="oath_Token" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="user_Locale" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="status" sqlType="BIT" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="user_ID"/>
+      <foreign-key name="user_ibfk_1" columns="user_Locale" ref-table="locale" ref-schema="" ref-catalog="coreLRMS" ref-columns="locales_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_ibfk_2" columns="user_Person_ID" ref-table="person" ref-schema="" ref-catalog="coreLRMS" ref-columns="person_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="client_Payment_ibfk_2" table="client_Payment" schema="" catalog="coreLRMS" columns="received_By"/>
+      <exported-key name="email_ibfk_1" table="email" schema="" catalog="coreLRMS" columns="email_Sender_ID"/>
+      <exported-key name="scheduler_ibfk_3" table="scheduler" schema="" catalog="coreLRMS" columns="user_ID"/>
+      <exported-key name="utility_ibfk_1" table="utility" schema="" catalog="coreLRMS" columns="created_By"/>
+    </table>
+    <table name="utility" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="utility_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="utility_Name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="bill_Code" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="amount" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="receipt_No" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="date_Paid" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="created_By" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_On" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="utility_ID"/>
+      <foreign-key name="utility_ibfk_1" columns="created_By" ref-table="user" ref-schema="" ref-catalog="coreLRMS" ref-columns="user_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="visit" schema="" catalog="coreLRMS" type="TABLE">
+      <column name="visit_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="file_Code" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="employee_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="start_Date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="end_Date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="estimated_Time" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="location_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ins_Code" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="amount" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="created_By" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="created_On" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="modified_By" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="modified_On" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="uuid" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="visit_ID"/>
+      <foreign-key name="visit_ibfk_1" columns="file_Code" ref-table="file" ref-schema="" ref-catalog="coreLRMS" ref-columns="file_Code" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="visit_ibfk_2" columns="employee_ID" ref-table="employee" ref-schema="" ref-catalog="coreLRMS" ref-columns="employee_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="visit_ibfk_3" columns="location_ID" ref-table="location" ref-schema="" ref-catalog="coreLRMS" ref-columns="location_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="visit_ibfk_4" columns="ins_Code" ref-table="instructions" ref-schema="" ref-catalog="coreLRMS" ref-columns="ins_Code" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+  </data-source>
+</component>

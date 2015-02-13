@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 10, 2015 12:59:33 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="org.vetech.lrms.core.hibernate.models.EntityConfig" table="entity_Config" catalog="coreLRMS">
+        <id name="entityId" type="java.lang.Integer">
+            <column name="entity_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="entityName" type="string">
+            <column name="entity_Name" not-null="true" />
+        </property>
+        <property name="postalAddress" type="string">
+            <column name="postal_Address" not-null="true" />
+        </property>
+        <property name="postalCode" type="int">
+            <column name="postal_Code" not-null="true" />
+        </property>
+        <property name="locationName" type="string">
+            <column name="location_Name" not-null="true" />
+        </property>
+        <property name="entityEmail" type="string">
+            <column name="entity_Email" />
+        </property>
+        <property name="phoneNo" type="string">
+            <column name="phone_NO" not-null="true" />
+        </property>
+        <property name="nhifNo" type="int">
+            <column name="nhifNo" not-null="true" />
+        </property>
+        <property name="nssfNo" type="int">
+            <column name="nssfNo" not-null="true" />
+        </property>
+        <property name="vatNo" type="int">
+            <column name="vatNO" not-null="true" />
+        </property>
+        <property name="pinNo" type="int">
+            <column name="pinNo" not-null="true" />
+        </property>
+        <property name="uuid" type="string">
+            <column name="uuid" length="128" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

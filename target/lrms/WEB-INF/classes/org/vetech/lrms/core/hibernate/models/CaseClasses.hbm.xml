@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 10, 2015 12:59:33 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="org.vetech.lrms.core.hibernate.models.CaseClasses" table="case_Classes" catalog="coreLRMS">
+        <id name="caseCode" type="string">
+            <column name="case_Code" />
+            <generator class="assigned" />
+        </id>
+        <property name="caseName" type="string">
+            <column name="case_Name" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" />
+        </property>
+        <property name="active" type="java.lang.Boolean">
+            <column name="active" />
+        </property>
+        <property name="ifRoot" type="java.lang.Boolean">
+            <column name="ifRoot" />
+        </property>
+        <property name="uuid" type="string">
+            <column name="uuid" length="128" not-null="true" />
+        </property>
+        <property name="caseId" type="int">
+            <column name="case_ID" not-null="true" />
+        </property>
+        <set name="files" table="file" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="file_Class_Code" not-null="true" />
+            </key>
+            <one-to-many class="org.vetech.lrms.core.hibernate.models.File" />
+        </set>
+        <set name="caseMapsForParentId" table="case_Map" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="parent_ID" />
+            </key>
+            <one-to-many class="org.vetech.lrms.core.hibernate.models.CaseMap" />
+        </set>
+        <set name="caseMapsForChildId" table="case_Map" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="child_ID" />
+            </key>
+            <one-to-many class="org.vetech.lrms.core.hibernate.models.CaseMap" />
+        </set>
+    </class>
+</hibernate-mapping>

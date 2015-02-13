@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="coreLRMS"/>
+  <table-filter match-name="identification_Type"/>
+  <table-filter match-name="visit"/>
+  <table-filter match-name="employee"/>
+  <table-filter match-name="job_Title"/>
+  <table-filter match-name="salaries"/>
+  <table-filter match-name="person"/>
+  <table-filter match-name="file"/>
+  <table-filter match-name="scheduler"/>
+  <table-filter match-name="case_Map"/>
+  <table-filter match-name="user"/>
+  <table-filter match-name="branch"/>
+  <table-filter match-name="role_Map"/>
+  <table-filter match-name="entity_Config"/>
+  <table-filter match-name="email"/>
+  <table-filter match-name="locale"/>
+  <table-filter match-name="person_Attribute"/>
+  <table-filter match-name="role"/>
+  <table-filter match-name="client_Config"/>
+  <table-filter match-name="instructions"/>
+  <table-filter match-name="transactions"/>
+  <table-filter match-name="utility"/>
+  <table-filter match-name="client"/>
+  <table-filter match-name="person_Name"/>
+  <table-filter match-name="file_Lending"/>
+  <table-filter match-name="location"/>
+  <table-filter match-name="person_Address"/>
+  <table-filter match-name="case_Classes"/>
+  <table-filter match-name="emp_expenditure"/>
+  <table-filter match-name="misc_exp"/>
+  <table-filter match-name="client_Payment"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 10, 2015 12:59:33 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="org.vetech.lrms.core.hibernate.models.IdentificationType" table="identification_Type" catalog="coreLRMS">
+        <id name="typeId" type="int">
+            <column name="type_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="typeName" type="string">
+            <column name="type_Name" not-null="true" />
+        </property>
+        <property name="typeCode" type="string">
+            <column name="type_Code" not-null="true" />
+        </property>
+        <property name="active" type="java.lang.Boolean">
+            <column name="active" />
+        </property>
+        <property name="uuid" type="string">
+            <column name="uuid" length="128" not-null="true" />
+        </property>
+        <set name="personAttributes" table="person_Attribute" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_Type" not-null="true" />
+            </key>
+            <one-to-many class="org.vetech.lrms.core.hibernate.models.PersonAttribute" />
+        </set>
+    </class>
+</hibernate-mapping>

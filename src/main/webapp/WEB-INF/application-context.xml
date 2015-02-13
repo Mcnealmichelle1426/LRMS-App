@@ -1,0 +1,101 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xmlns:mvc="http://www.springframework.org/schema/mvc"-->
+       <!--xmlns:aop="http://www.springframework.org/schema/aop"-->
+       <!--xmlns:context="http://www.springframework.org/schema/context"-->
+       <!--xmlns:jee="http://www.springframework.org/schema/jee"-->
+       <!--xmlns:lang="http://www.springframework.org/schema/lang"-->
+       <!--xmlns:p="http://www.springframework.org/schema/p"-->
+       <!--xmlns:tx="http://www.springframework.org/schema/tx"-->
+       <!--xmlns:util="http://www.springframework.org/schema/util"-->
+       <!--xsi:schemaLocation="-->
+        <!--http://www.springframework.org/schema/beans-->
+        <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd-->
+        <!--http://www.springframework.org/schema/mvc-->
+ 	<!--http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd-->
+ 	<!--http://www.springframework.org/schema/aop-->
+ 	<!--http://www.springframework.org/schema/aop/spring-aop-3.0.xsd-->
+        <!--http://www.springframework.org/schema/context-->
+        <!--http://www.springframework.org/schema/context/spring-context-3.0.xsd-->
+        <!--http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd-->
+	<!--http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd-->
+	<!--http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd-->
+	<!--http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">-->
+
+    <!--<context:annotation-config/>-->
+
+    <!--<mvc:annotation-driven/>-->
+
+    <!--<context:component-scan base-package="org.vetech.lrms.core.*"/>-->
+
+    <!--&lt;!&ndash;-->
+        <!--- The BeanNameViewResolver is used to pick up the visits view name (below).-->
+        <!--- It has the order property set to 2, which means that this will-->
+        <!--- be the first view resolver to be used after the delegating content-->
+        <!--- negotiating view resolver.-->
+     <!--&ndash;&gt;-->
+    <!--<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="1"/>-->
+    <!--&lt;!&ndash;-->
+        <!--- This bean configures the 'prefix' and 'suffix' properties of-->
+        <!--- InternalResourceViewResolver, which resolves logical view names-->
+        <!--- returned by Controllers. For example, a logical view name of "test"-->
+        <!--- will be mapped to "/WEB-INF/jsp/test.jsp".-->
+    <!--&ndash;&gt;-->
+    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/pages/"-->
+          <!--p:suffix=".jsp" p:order="2"/>-->
+
+    <!--&lt;!&ndash; JDBC properties &ndash;&gt;-->
+    <!--<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"-->
+          <!--p:location="/WEB-INF/jdbc.properties" />-->
+
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"-->
+          <!--p:driverClassName="${jdbc.driverClassName}"-->
+          <!--p:url="${jdbc.databaseurl}"-->
+          <!--p:username="${jdbc.username}"-->
+          <!--p:password="${jdbc.password}" />-->
+
+    <!--&lt;!&ndash;<bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase">&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="dataSource" ref="dataSource" />&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="changeLog" value="classpath:org/vetech/lrms/core/db/liquibase.properties" />&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="defaultSchema" value="coreLRMS" />&ndash;&gt;-->
+    <!--&lt;!&ndash;</bean>&ndash;&gt;-->
+
+    <!--<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">-->
+        <!--<property name="dataSource" ref="dataSource" />-->
+        <!--<property name="configLocation">-->
+            <!--<value>classpath:/org/vetech/lrms/core/hibernate/hibernate.cfg.xml</value>-->
+        <!--</property>-->
+        <!--<property name="hibernateProperties">-->
+            <!--<props>-->
+                <!--<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>-->
+                <!--<prop key="hibernate.show_sql">false</prop>-->
+                <!--<prop key="hibernate.hbm2ddl.auto">update</prop>-->
+                <!--&lt;!&ndash;<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>&ndash;&gt;-->
+            <!--</props>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--<tx:annotation-driven />-->
+
+    <!--&lt;!&ndash; excludes all resources like images, js and css from url mapping and view resolving &ndash;&gt;-->
+    <!--&lt;!&ndash;<mvc:resources mapping="/resources/**" location="/resources/" />&ndash;&gt;-->
+
+     <!--&lt;!&ndash;Transaction manager&ndash;&gt;-->
+    <!--&lt;!&ndash;<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="sessionFactory" ref="sessionFactory" />&ndash;&gt;-->
+    <!--&lt;!&ndash;</bean>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<bean id="appUser" class="org.vetech.lrms.core.dao.daoImpl.AppUserImpl" autowire="constructor"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<bean id="appUserService" class="org.vetech.lrms.core.service.serviceImpl.AppUserServiceImpl">&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="appUserDAO" ref="appUserDAO"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;</bean>&ndash;&gt;-->
+    <!--&lt;!&ndash;<bean id="appUserDAO" class="org.vetech.lrms.core.dao.daoImpl.AppUserImpl">&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="sessionFactory" ref="sessionFactory"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;</bean>&ndash;&gt;-->
+    <!--&lt;!&ndash;<bean class="org.vetech.lrms.core.web.controller.UserController" id="controller" autowire="constructor"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<bean class="org.hibernate.SessionFactory" id="sessionFactory2" autowire="default"/>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<bean name="handlerAdapter" class="RequestHa"&ndash;&gt;-->
+
+<!--</beans>-->

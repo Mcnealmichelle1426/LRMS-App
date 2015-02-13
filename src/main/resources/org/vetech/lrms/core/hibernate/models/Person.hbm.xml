@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 10, 2015 12:59:33 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="org.vetech.lrms.core.hibernate.models.Person" table="person" catalog="coreLRMS">
+        <id name="personId" type="java.lang.Integer">
+            <column name="person_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="gender" type="string">
+            <column name="gender" not-null="true" />
+        </property>
+        <property name="dateOfBirth" type="timestamp">
+            <column name="date_Of_Birth" length="19" not-null="true" />
+        </property>
+        <property name="createdBy" type="java.lang.Integer">
+            <column name="created_By" />
+        </property>
+        <property name="uuid" type="string">
+            <column name="uuid" length="128" not-null="true" />
+        </property>
+        <set name="clients" table="client" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="client_Person_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.vetech.lrms.core.hibernate.models.Client" />
+        </set>
+        <set name="personNames" table="person_Name" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="person_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.vetech.lrms.core.hibernate.models.PersonName" />
+        </set>
+        <set name="personAddresses" table="person_Address" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="person_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.vetech.lrms.core.hibernate.models.PersonAddress" />
+        </set>
+        <set name="personAttributesForPersonId" table="person_Attribute" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="person_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.vetech.lrms.core.hibernate.models.PersonAttribute" />
+        </set>
+        <set name="employees" table="employee" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="employee_Person_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.vetech.lrms.core.hibernate.models.Employee" />
+        </set>
+        <set name="personAttributesForNextOfKinId" table="person_Attribute" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="next_Of_Kin_ID" />
+            </key>
+            <one-to-many class="org.vetech.lrms.core.hibernate.models.PersonAttribute" />
+        </set>
+        <set name="users" table="user" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_Person_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.vetech.lrms.core.hibernate.models.User" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 10, 2015 12:59:33 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="org.vetech.lrms.core.hibernate.models.PersonAttribute" table="person_Attribute" catalog="coreLRMS">
+        <id name="personAttributeId" type="java.lang.Integer">
+            <column name="person_Attribute_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="identificationType" class="org.vetech.lrms.core.hibernate.models.IdentificationType" fetch="select">
+            <column name="id_Type" not-null="true" />
+        </many-to-one>
+        <many-to-one name="personByNextOfKinId" class="org.vetech.lrms.core.hibernate.models.Person" fetch="select">
+            <column name="next_Of_Kin_ID" />
+        </many-to-one>
+        <many-to-one name="personByPersonId" class="org.vetech.lrms.core.hibernate.models.Person" fetch="select">
+            <column name="person_ID" not-null="true" />
+        </many-to-one>
+        <property name="idNumber" type="java.lang.Integer">
+            <column name="id_Number" />
+        </property>
+        <property name="phoneNo" type="string">
+            <column name="phone_No" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" />
+        </property>
+        <property name="imageUrl" type="string">
+            <column name="image_URL" />
+        </property>
+        <property name="createdBy" type="java.lang.Integer">
+            <column name="created_By" />
+        </property>
+        <property name="createdOn" type="timestamp">
+            <column name="created_On" length="19" />
+        </property>
+        <property name="modifiedBy" type="java.lang.Integer">
+            <column name="modified_By" />
+        </property>
+        <property name="modifiedOn" type="timestamp">
+            <column name="modified_On" length="19" />
+        </property>
+        <property name="uuid" type="string">
+            <column name="uuid" length="128" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

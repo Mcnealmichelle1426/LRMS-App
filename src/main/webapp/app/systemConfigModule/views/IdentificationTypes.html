@@ -1,0 +1,56 @@
+<div class="col-lg-12 " data-ng-controller="IdentificationTypeController as id">
+    <div class="col-lg-12">
+        <h4 class="header-styler"><i class="fa fa-angle-right"></i> Identification types</h4>
+        <form  class="form" name="identificationTypeForm" role="form" data-ng-submit="id.saveChanges()">
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    <label class="col-sm-2 col-sm-2 control-label">Code</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="code" data-ng-model="id.identificationType.code"
+                               data-ng-class="{'has-error has-feedback': !identificationTypeForm.code.$valid && !identificationTypeForm.code.$pristine}">
+                    </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label class="col-sm-2 col-sm-2 control-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" data-ng-model="id.identificationType.name" name="name"
+                               data-ng-class="{'has-error has-feedback': !identificationTypeForm.name.$valid && !identificationTypeForm.name.$pristine}">
+                    </div>
+                </div>
+            </div>
+            <div class="form-action row" style=" padding: 10px; margin-top:10px;">
+                <button class="btn btn-success pull-right spacer" style="margin-right: 20px;"  type="submit"
+                        data-ng-disabled="identificationTypeForm.$invalid || id.isDisabled">
+                    <i class="fa fa-save" data-ng-if="!id.isSaving"></i>
+                    <i class="fa fa-spinner fa-spin" data-ng-if="id.isSaving"></i>
+                    save
+                </button>
+                <button class="btn btn-danger pull-right spacer" data-ng-click="id.cancelForm(identificationTypeForm.$invalid)">cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-12 ">
+        <table class="table table-advance table-hover">
+            <h4></h4>
+
+            <thead>
+            <tr>
+                <th>code</th>
+                <th>name</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-ng-repeat="data in id.identificationTypes track by $index">
+                <td>{{data.code}}</td>
+                <td class="hidden-phone">{{data.name}}</td>
+                <td>
+                    <button class="btn btn-danger btn-xs pull-right spacer" data-ng-click="id.deactivateItem(data)"><i class="fa fa-trash-o"></i></button>
+                    <button class="btn btn-primary btn-xs pull-right spacer" data-ng-click="id.editData(data)"><i class="fa fa-pencil"></i></button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div><!-- /col-md-12 -->
+</div>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 10, 2015 12:59:33 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="org.vetech.lrms.core.hibernate.models.Utility" table="utility" catalog="coreLRMS">
+        <id name="utilityId" type="java.lang.Integer">
+            <column name="utility_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="org.vetech.lrms.core.hibernate.models.User" fetch="select">
+            <column name="created_By" not-null="true" />
+        </many-to-one>
+        <property name="utilityName" type="string">
+            <column name="utility_Name" not-null="true" />
+        </property>
+        <property name="billCode" type="string">
+            <column name="bill_Code" />
+        </property>
+        <property name="amount" type="java.lang.Integer">
+            <column name="amount" />
+        </property>
+        <property name="receiptNo" type="string">
+            <column name="receipt_No" not-null="true" />
+        </property>
+        <property name="datePaid" type="timestamp">
+            <column name="date_Paid" length="19" />
+        </property>
+        <property name="createdOn" type="timestamp">
+            <column name="created_On" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

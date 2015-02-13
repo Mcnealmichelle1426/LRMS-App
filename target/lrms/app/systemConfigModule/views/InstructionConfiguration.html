@@ -1,0 +1,74 @@
+<div class="col-lg-12 " data-ng-controller="InstructionConfigurationController as ic">
+    <div class="col-lg-12">
+        <h4 class="header-styler"><i class="fa fa-angle-right"></i> Identification types</h4>
+        <form  class="form" name="InstructionConfigurationForm" role="form" data-ng-submit="ic.saveChanges()">
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    <label class="col-sm-2 col-sm-2 control-label">Code</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="code" data-ng-model="ic.instructionConfiguration.code"
+                               data-ng-class="{'has-error has-feedback': !InstructionConfigurationForm.code.$valid && !InstructionConfigurationForm.code.$pristine}">
+                    </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label class="col-sm-2 col-sm-2 control-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" data-ng-model="ic.instructionConfiguration.name" name="name"
+                               data-ng-class="{'has-error has-feedback': !InstructionConfigurationForm.name.$valid && !InstructionConfigurationForm.name.$pristine}">
+                    </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label class="col-sm-2 col-sm-2 control-label">Description</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" data-ng-model="ic.instructionConfiguration.description" name="description"
+                               data-ng-class="{'has-error has-feedback': !InstructionConfigurationForm.description.$valid && !InstructionConfigurationForm.description.$pristine}">
+                    </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label class="col-sm-2 col-sm-2 control-label">Charge</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" data-ng-model="ic.instructionConfiguration.charge" name="charge"
+                               data-ng-class="{'has-error has-feedback': !InstructionConfigurationForm.charge.$valid && !InstructionConfigurationForm.charge.$pristine}">
+                    </div>
+                </div>
+            </div>
+            <div class="form-action row" style=" padding: 10px; margin-top:10px;">
+                <button class="btn btn-success pull-right spacer" style="margin-right: 20px;"  type="submit"
+                        data-ng-disabled="InstructionConfigurationForm.$invalid || ic.isDisabled">
+                    <i class="fa fa-save" data-ng-if="!ic.isSaving"></i>
+                    <i class="fa fa-spinner fa-spin" data-ng-if="ic.isSaving"></i>
+                    save
+                </button>
+                <button class="btn btn-danger pull-right spacer" data-ng-click="ic.cancelForm(InstructionConfigurationForm.$invalid)">cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-12 ">
+        <table class="table table-advance table-hover">
+            <h4></h4>
+
+            <thead>
+            <tr>
+                <th>code</th>
+                <th>name</th>
+                <th>description</th>
+                <th>charge</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-ng-repeat="data in ic.instructionConfigurations track by $index">
+                <td>{{data.code}}</td>
+                <td class="hidden-phone">{{data.name}}</td>
+                <td class="hidden-phone">{{data.description}}</td>
+                <td class="hidden-phone">{{data.charge}}</td>
+                <td>
+                    <button class="btn btn-danger btn-xs pull-right spacer" data-ng-click="ic.deactivateItem(data)"><i class="fa fa-trash-o"></i></button>
+                    <button class="btn btn-primary btn-xs pull-right spacer" data-ng-click="ic.editData(data)"><i class="fa fa-pencil"></i></button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div><!-- /col-md-12 -->
+</div>

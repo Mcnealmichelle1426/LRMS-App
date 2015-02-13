@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 10, 2015 12:59:33 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="org.vetech.lrms.core.hibernate.models.FileLending" table="file_Lending" catalog="coreLRMS">
+        <id name="fileLendingId" type="java.lang.Integer">
+            <column name="file_Lending_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="employeeByLenderId" class="org.vetech.lrms.core.hibernate.models.Employee" fetch="select">
+            <column name="lender_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="file" class="org.vetech.lrms.core.hibernate.models.File" fetch="select">
+            <column name="file_Code" not-null="true" />
+        </many-to-one>
+        <many-to-one name="employeeByReceivedBy" class="org.vetech.lrms.core.hibernate.models.Employee" fetch="select">
+            <column name="received_By" />
+        </many-to-one>
+        <many-to-one name="location" class="org.vetech.lrms.core.hibernate.models.Location" fetch="select">
+            <column name="location_ID" />
+        </many-to-one>
+        <property name="dateOut" type="timestamp">
+            <column name="date_Out" length="19" not-null="true" />
+        </property>
+        <property name="dateIn" type="timestamp">
+            <column name="date_In" length="19" />
+        </property>
+        <property name="notes" type="string">
+            <column name="notes" length="1024" />
+        </property>
+        <property name="createdBy" type="java.lang.Integer">
+            <column name="created_By" />
+        </property>
+        <property name="createdOn" type="timestamp">
+            <column name="created_On" length="19" />
+        </property>
+        <property name="modifiedBy" type="java.lang.Integer">
+            <column name="modified_By" />
+        </property>
+        <property name="modifiedOn" type="timestamp">
+            <column name="modified_On" length="19" />
+        </property>
+        <property name="uuid" type="string">
+            <column name="uuid" length="128" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 10, 2015 12:59:33 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="org.vetech.lrms.core.hibernate.models.ClientPayment" table="client_Payment" catalog="coreLRMS">
+        <id name="paymentId" type="java.lang.Integer">
+            <column name="payment_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="org.vetech.lrms.core.hibernate.models.User" fetch="select">
+            <column name="received_By" />
+        </many-to-one>
+        <many-to-one name="file" class="org.vetech.lrms.core.hibernate.models.File" fetch="select">
+            <column name="file_Code" not-null="true" />
+        </many-to-one>
+        <property name="amountPaid" type="int">
+            <column name="amount_Paid" not-null="true" />
+        </property>
+        <property name="receiptNumber" type="string">
+            <column name="receipt_Number" not-null="true" />
+        </property>
+        <property name="datePaid" type="timestamp">
+            <column name="date_Paid" length="19" />
+        </property>
+        <property name="uuid" type="string">
+            <column name="uuid" length="128" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

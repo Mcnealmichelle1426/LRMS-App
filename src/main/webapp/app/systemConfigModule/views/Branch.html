@@ -1,0 +1,92 @@
+<div class="col-lg-12 " data-ng-controller="BranchController as ic">
+    <div class="col-lg-12">
+        <h4 class="header-styler"><i class="fa fa-angle-right"></i> Branch</h4>
+        <form  class="form" name="branchForm" role="form" data-ng-submit="ic.saveChanges()">
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    <label class="col-sm-2 col-sm-2 control-label">Code</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="code" data-ng-model="ic.branch.code"
+                               data-ng-class="{'has-error has-feedback': !branchForm.code.$valid && !branchForm.code.$pristine}">
+                    </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label class="col-sm-2 col-sm-2 control-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" data-ng-model="ic.branch.name" name="name"
+                               data-ng-class="{'has-error has-feedback': !branchForm.name.$valid && !branchForm.name.$pristine}">
+                    </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label class="col-sm-2 col-sm-2 control-label">Postal Code</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" data-ng-model="ic.branch.postalCode" name="postalCode"
+                               data-ng-class="{'has-error has-feedback': !branchForm.postalCode.$valid && !branchForm.postalCode.$pristine}">
+                    </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label class="col-sm-2 col-sm-2 control-label">Postal Address</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" data-ng-model="ic.branch.postalAddress" name="postalAddress"
+                               data-ng-class="{'has-error has-feedback': !branchForm.postalAddress.$valid && !branchForm.postalAddress.$pristine}">
+                    </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label class="col-sm-2 col-sm-2 control-label">Branch Location</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" data-ng-model="ic.branch.location" name="location"
+                               data-ng-class="{'has-error has-feedback': !branchForm.location.$valid && !branchForm.location.$pristine}">
+                    </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label class="col-sm-2 col-sm-2 control-label">Branch Head</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" data-ng-model="ic.branch.branchHead" name="branchHead"
+                               data-ng-class="{'has-error has-feedback': !branchForm.branchHead.$valid && !branchForm.branchHead.$pristine}">
+                    </div>
+                </div>
+            </div>
+            <div class="form-action row" style="padding: 10px; margin-top:10px;">
+                <button class="btn btn-success pull-right spacer" style="margin-right: 20px;"  type="submit"
+                        data-ng-disabled="branchForm.$invalid || ic.isDisabled">
+                    <i class="fa fa-save" data-ng-if="!ic.isSaving"></i>
+                    <i class="fa fa-spinner fa-spin" data-ng-if="ic.isSaving"></i>
+                    save
+                </button>
+                <button class="btn btn-danger pull-right spacer" data-ng-click="ic.cancelForm(branchForm.$invalid)">cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-12 ">
+        <table class="table table-advance table-hover">
+            <h4></h4>
+
+            <thead>
+            <tr>
+                <th>code</th>
+                <th>name</th>
+                <th>Postal Code</th>
+                <th>Postal Address</th>
+                <th>Branch Location</th>
+                <th>Branch Head</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-ng-repeat="data in ic.branches track by $index">
+                <td>{{data.code}}</td>
+                <td class="hidden-phone">{{data.name}}</td>
+                <td class="hidden-phone">{{data.postalCode}}</td>
+                <td class="hidden-phone">{{data.postalAddress}}</td>
+                <td class="hidden-phone">{{data.location.name}}</td>
+                <td class="hidden-phone">{{data.branchHead.name}}</td>
+                <td>
+                    <button class="btn btn-danger btn-xs pull-right spacer" data-ng-click="ic.deactivateItem(data)"><i class="fa fa-trash-o"></i></button>
+                    <button class="btn btn-primary btn-xs pull-right spacer" data-ng-click="ic.editData(data)"><i class="fa fa-pencil"></i></button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div><!-- /col-md-12 -->
+</div>

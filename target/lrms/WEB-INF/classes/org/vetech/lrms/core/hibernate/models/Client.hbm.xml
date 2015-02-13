@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 10, 2015 12:59:33 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="org.vetech.lrms.core.hibernate.models.Client" table="client" catalog="coreLRMS">
+        <id name="clientId" type="java.lang.Integer">
+            <column name="client_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="person" class="org.vetech.lrms.core.hibernate.models.Person" fetch="select">
+            <column name="client_Person_ID" not-null="true" />
+        </many-to-one>
+        <property name="clientTypeId" type="int">
+            <column name="client_Type_ID" not-null="true" />
+        </property>
+        <property name="createdBy" type="java.lang.Integer">
+            <column name="created_By" />
+        </property>
+        <property name="createdOn" type="timestamp">
+            <column name="created_On" length="19" />
+        </property>
+        <property name="modifiedBy" type="java.lang.Integer">
+            <column name="modified_By" />
+        </property>
+        <property name="modifiedOn" type="timestamp">
+            <column name="modified_On" length="19" />
+        </property>
+        <property name="uuid" type="string">
+            <column name="uuid" length="128" not-null="true" />
+        </property>
+        <set name="files" table="file" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="client_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.vetech.lrms.core.hibernate.models.File" />
+        </set>
+    </class>
+</hibernate-mapping>

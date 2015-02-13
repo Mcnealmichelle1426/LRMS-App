@@ -1,0 +1,37 @@
+<aside>
+    <div id="sidebar"  class="nav-collapse">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+            <div data-ng-controller="loginController as login">
+                <p class="centered"><a href="profile.html"><img src="{{login.loggedIn().imageUrl}}" class="img-circle" width="60"></a></p>
+                <h5 class="centered">{{login.loggedIn().userName}}</h5>
+            </div>
+            <div data-ng-controller="MenuController as menu">
+                <!--<div data-ng-repeat="x in menu.menuData">-->
+                    <!--<li data-ng-if="!x.isRoot" class="mt">-->
+                        <!--<a  href="{{x.href}}"><i class="{{x.icon}}"></i>-->
+                            <!--<span>{{x.name}}</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li  data-ng-if="x.isRoot" class="sub-menu">-->
+                        <!--<a  href="#"><i class="{{x.icon}}"></i>-->
+                            <!--<span>{{x.name}}</span>-->
+                        <!--</a>-->
+                        <!--<ul class="sub">-->
+                            <!--<li data-ng-repeat="sub in x.items"><a  href="{{sub.href}}">{{sub.name}}</a></li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                <!--</div>-->
+                <div    class="nav-collapse"
+                        data-angular-treeview="true"
+                        data-tree-id="abc"
+                        data-tree-model="treedata"
+                        data-node-id="id"
+                        data-node-label="label"
+                        data-node-children="children" >
+                </div>
+            </div>
+        </ul>
+        <!-- sidebar menu end-->
+    </div>
+</aside>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/coreLRMS?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password"></property>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/Location.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/EntityConfig.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/Person.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/Transactions.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/Instructions.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/Email.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/CaseMap.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/Locale.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/Employee.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/IdentificationType.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/File.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/CaseClasses.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/Role.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/JobTitle.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/PersonAddress.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/ClientConfig.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/PersonName.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/MiscExp.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/Visit.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/EmpExpenditure.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/Scheduler.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/FileLending.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/Salaries.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/Branch.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/ClientPayment.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/Client.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/Utility.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/User.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/PersonAttribute.hbm.xml"/>
+    <mapping resource="org/vetech/lrms/core/hibernate/models/RoleMap.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

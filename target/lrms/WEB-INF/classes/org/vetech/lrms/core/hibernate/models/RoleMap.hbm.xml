@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 10, 2015 12:59:33 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="org.vetech.lrms.core.hibernate.models.RoleMap" table="role_Map" catalog="coreLRMS">
+        <id name="roleMapId" type="java.lang.Integer">
+            <column name="role_Map_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="roleByRoleThree" class="org.vetech.lrms.core.hibernate.models.Role" fetch="select">
+            <column name="role_Three" />
+        </many-to-one>
+        <many-to-one name="roleByRoleTwo" class="org.vetech.lrms.core.hibernate.models.Role" fetch="select">
+            <column name="role_Two" />
+        </many-to-one>
+        <many-to-one name="roleByRoleOne" class="org.vetech.lrms.core.hibernate.models.Role" fetch="select">
+            <column name="role_One" />
+        </many-to-one>
+        <property name="uuid" type="string">
+            <column name="uuid" length="128" not-null="true" />
+        </property>
+        <property name="active" type="java.lang.Boolean">
+            <column name="active" />
+        </property>
+        <property name="roleGroup" type="string">
+            <column name="role_Group" />
+        </property>
+        <set name="jobTitles" table="job_Title" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="role_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.vetech.lrms.core.hibernate.models.JobTitle" />
+        </set>
+    </class>
+</hibernate-mapping>

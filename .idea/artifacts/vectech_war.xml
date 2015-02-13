@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="vectech:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="lrms.war">
+      <element id="artifact" artifact-name="vectech:war exploded" />
+    </root>
+  </artifact>
+</component>

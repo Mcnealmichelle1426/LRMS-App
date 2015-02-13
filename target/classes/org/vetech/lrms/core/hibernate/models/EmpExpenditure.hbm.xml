@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 10, 2015 12:59:33 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="org.vetech.lrms.core.hibernate.models.EmpExpenditure" table="emp_expenditure" catalog="coreLRMS">
+        <id name="expId" type="java.lang.Integer">
+            <column name="exp_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="employee" class="org.vetech.lrms.core.hibernate.models.Employee" fetch="select">
+            <column name="employee_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="file" class="org.vetech.lrms.core.hibernate.models.File" fetch="select">
+            <column name="file_Code" not-null="true" />
+        </many-to-one>
+        <property name="dateOfVisit" type="timestamp">
+            <column name="date_Of_Visit" length="19" />
+        </property>
+        <property name="amountDrawn" type="int">
+            <column name="amount_drawn" not-null="true" />
+        </property>
+        <property name="destination" type="string">
+            <column name="destination" not-null="true" />
+        </property>
+        <property name="approvedBy" type="java.lang.Integer">
+            <column name="approved_BY" />
+        </property>
+        <property name="status" type="java.lang.Boolean">
+            <column name="status" />
+        </property>
+        <property name="balance" type="java.lang.Integer">
+            <column name="balance" />
+        </property>
+        <set name="transactionses" table="transactions" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="exp_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.vetech.lrms.core.hibernate.models.Transactions" />
+        </set>
+    </class>
+</hibernate-mapping>

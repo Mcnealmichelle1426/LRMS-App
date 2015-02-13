@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 10, 2015 12:59:33 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="org.vetech.lrms.core.hibernate.models.PersonAddress" table="person_Address" catalog="coreLRMS">
+        <id name="personAddressId" type="java.lang.Integer">
+            <column name="person_Address_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="person" class="org.vetech.lrms.core.hibernate.models.Person" fetch="select">
+            <column name="person_ID" not-null="true" />
+        </many-to-one>
+        <property name="postalAddress" type="string">
+            <column name="postal_Address" />
+        </property>
+        <property name="postalCode" type="java.lang.Integer">
+            <column name="postal_Code" />
+        </property>
+        <property name="postalLocationId" type="java.lang.Integer">
+            <column name="postal_Location_ID" />
+        </property>
+        <property name="clientLocationId" type="java.lang.Integer">
+            <column name="client_Location_ID" />
+        </property>
+        <property name="country" type="string">
+            <column name="country" />
+        </property>
+        <property name="state" type="string">
+            <column name="state" />
+        </property>
+        <property name="district" type="string">
+            <column name="district" />
+        </property>
+        <property name="location" type="string">
+            <column name="location" />
+        </property>
+        <property name="sublocation" type="string">
+            <column name="sublocation" />
+        </property>
+        <property name="estate" type="string">
+            <column name="estate" />
+        </property>
+        <property name="createdBy" type="java.lang.Integer">
+            <column name="created_By" />
+        </property>
+        <property name="createdOn" type="timestamp">
+            <column name="created_On" length="19" />
+        </property>
+        <property name="modifiedBy" type="java.lang.Integer">
+            <column name="modified_By" />
+        </property>
+        <property name="modifiedOn" type="timestamp">
+            <column name="modified_On" length="19" />
+        </property>
+        <property name="uuid" type="string">
+            <column name="uuid" length="128" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
